@@ -1,20 +1,4 @@
-#
-#  EasyBMP Cross-Platform Windows Bitmap Library  
-#                                                
-#  Author: Paul Macklin                          
-#   email: macklin01@users.sourceforge.net       
-# support: http://easybmp.sourceforge.net        
-#          file: makefile                
-#    date added: 04-22-2006                      
-# date modified: 12-01-2006                      
-#       version: 1.06                            
-#                                                
-#   License: BSD (revised/modified)              
-# Copyright: 2005-6 by the EasyBMP Project        
-#                                                
-# description: Sample makefile for compiling with
-#              the EasyBMP library. This compiles
-#              the EasyBMPsample.cpp program.
+# description: Compiles the lens and the library
 #
 
 CC = g++
@@ -34,16 +18,16 @@ CC = g++
 
 CFLAGS = -O3 -pipe -fomit-frame-pointer -funroll-all-loops -s
 
-EasyBMPTest: EasyBMP.o EasyBMPsample.o
-	g++ $(CFLAGS) EasyBMP.o EasyBMPsample.o -o EasyBMPtest
+EasyBMPTest: EasyBMP.o Lensmain.o
+	g++ $(CFLAGS) EasyBMP.o Lensmain.o -o EasyBMPtest
 
 EasyBMP.o: EasyBMP.cpp EasyBMP*.h
 	cp ../EasyBMP*.h .
 	cp ../EasyBMP.cpp .
 	g++ $(CFLAGS) -c EasyBMP.cpp
 
-EasyBMPsample.o: EasyBMPsample.cpp
-	g++ -c EasyBMPsample.cpp
+Lensmain.o: Lensmain.cpp
+	g++ -c Lensmain.cpp
 
 clean: 
 	rm EasyBMP*.h
